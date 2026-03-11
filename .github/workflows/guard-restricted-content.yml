@@ -1,0 +1,25 @@
+name: Guard Restricted Content
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  block-restricted-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fail on restricted teaching content
+        shell: bash
+        run: |
+          pattern='(^|/)(slides|exam|takehomeproblemset|admin)(/|$)|(^|/)problem sets(/|$)'
+          if git ls-files | grep -Eiq "$pattern"; then
+            echo "Restricted paths are present in this public repository:"
+            git ls-files | grep -Ei "$pattern" || true
+            echo "Remove these files/directories and keep them only in the private repository."
+            exit 1
+          fi
+          echo "No restricted paths detected."
