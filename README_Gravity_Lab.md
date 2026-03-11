@@ -23,7 +23,6 @@ This repository is intentionally restricted to gravity-lab assets only.
    - coefficient table (clustered SE by country pair),
    - model metadata (`N`, formula, sample composition),
    - FE/collinearity diagnostics.
-5. Copy the generated LaTeX block if needed.
 
 ## Control logic (important)
 
