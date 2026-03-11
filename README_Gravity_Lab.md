@@ -17,7 +17,7 @@ This repository is intentionally restricted to gravity-lab assets only.
 3. Use the form cell to choose:
    - estimator (`OLS` or `PPML`),
    - one FE toggle (`include_fe`) that jointly controls exporter and importer FE,
-   - covariates via checkbox groups (bilateral, exporter-only, importer-only),
+   - covariates via compact accordion checkbox groups (bilateral, exporter-only, importer-only),
    - exporter/importer country filters.
 4. Read:
    - coefficient table (clustered SE by country pair),
@@ -40,11 +40,11 @@ This repository is intentionally restricted to gravity-lab assets only.
 
 - Bilateral:
   - baseline: `ln_dist`, `contig`, `comlang_off`, `rta`
-  - additional: `dist`, `distcap`, `distwces`, `rta_coverage`, `rta_type`, `comlang_ethno`, `comcol`, `col45`, `comleg_pretrans`, `comleg_posttrans`, `sibling`, `col_dep`
+  - additional: `dist`, `comcol`, `comleg_posttrans`
 - Exporter-only:
-  - `ln_gdp_o`, `gdp_o`, `ln_pop_o`, `pop_o`, `ln_gdpcap_o`, `gdpcap_o`, `gatt_o`, `wto_o`, `eu_o`
+  - `ln_gdp_o`, `gdp_o`, `ln_pop_o`, `pop_o`, `ln_gdpcap_o`, `gdpcap_o`, `wto_o`, `eu_o`
 - Importer-only:
-  - `ln_gdp_d`, `gdp_d`, `ln_pop_d`, `pop_d`, `ln_gdpcap_d`, `gdpcap_d`, `gatt_d`, `wto_d`, `eu_d`
+  - `ln_gdp_d`, `gdp_d`, `ln_pop_d`, `pop_d`, `ln_gdpcap_d`, `gdpcap_d`, `wto_d`, `eu_d`
 
 Note: `comcur` is not available in `Gravity_V202010.dta`, so it is not offered in the notebook controls.
 
@@ -57,7 +57,7 @@ Note: `comcur` is not available in `Gravity_V202010.dta`, so it is not offered i
 ## Suggested experiments
 
 1. Run `Naive GDP gravity (no FE)` and compare with `Canonical FE (OLS)`.
-2. Switch to `Custom`, add one extra bilateral covariate (for example `comleg_pretrans`), and inspect coefficient changes.
+2. Switch to `Custom`, add one extra bilateral covariate (for example `comleg_posttrans`), and inspect coefficient changes.
 3. Toggle `include_fe` off/on with the same covariates and compare interpretation.
 4. Restrict exporters/importers (for example a regional subset) and compare coefficients.
 
