@@ -348,8 +348,8 @@ def main() -> None:
         "parquet_written": parquet_error is None,
         "parquet_error": parquet_error,
         "csv_written": not args.no_csv_backup,
-        "trade_file": str(args.trade_file),
-        "gravity_file": str(args.gravity_file),
+        "trade_file_name": args.trade_file.name,
+        "gravity_file_name": args.gravity_file.name,
     }
     metadata_path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
     print(f"Wrote metadata JSON: {metadata_path}")

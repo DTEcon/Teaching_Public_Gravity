@@ -37,6 +37,6 @@
   "parquet_written": false,
   "parquet_error": "Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.\nA suitable version of pyarrow or fastparquet is required for parquet support.\nTrying to import the above resulted in these errors:\n - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.\n - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.",
   "csv_written": true,
-  "trade_file": "C:\\Users\\dtorun\\Dropbox\\UniSG DB\\Data\\Atlas of Economic Complexity\\HS6digit\\H0_2019.dta",
-  "gravity_file": "C:\\Users\\dtorun\\Dropbox\\UniSG DB\\Data\\BACI CEPII GRAVITY\\Gravity_V202010.dta"
+  "trade_file_name": "H0_2019.dta",
+  "gravity_file_name": "Gravity_V202010.dta"
 }
