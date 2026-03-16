@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravity Lab &mdash; Student Quick Guide</title>
+<style>
+  /* ── Reset & Base ────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #2d3748;
+    background: #f7f8fc;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+  }
+  .container { max-width: 780px; margin: 0 auto; }
+
+  /* ── Header Banner ───────────────────────────────── */
+  .banner {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2b6cb0 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 2.2rem 2.5rem 1.8rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 14px rgba(30,58,95,.25);
+  }
+  .banner h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: .4rem;
+  }
+  .banner .subtitle {
+    font-size: 1rem;
+    opacity: .9;
+    font-weight: 400;
+  }
+  .banner .link-row {
+    margin-top: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    flex-wrap: wrap;
+  }
+  .banner .link-row a {
+    display: inline-block;
+    background: #fff;
+    color: #1e3a5f;
+    font-weight: 600;
+    padding: .55rem 1.3rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: .95rem;
+    transition: background .15s;
+  }
+  .banner .link-row a:hover { background: #e2e8f0; }
+
+  /* ── Objective Pill ──────────────────────────────── */
+  .objective {
+    background: #ebf4ff;
+    border-left: 4px solid #2b6cb0;
+    border-radius: 6px;
+    padding: 1rem 1.4rem;
+    margin-bottom: 2rem;
+    font-size: .97rem;
+  }
+  .objective strong { color: #1e3a5f; }
+
+  /* ── Section Headings ────────────────────────────── */
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-bottom: .8rem;
+    padding-bottom: .35rem;
+    border-bottom: 2px solid #cbd5e0;
+  }
+  h2 .num {
+    display: inline-block;
+    background: #2b6cb0;
+    color: #fff;
+    width: 1.6rem; height: 1.6rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.6rem;
+    font-size: .85rem;
+    margin-right: .5rem;
+    vertical-align: middle;
+  }
+
+  section { margin-bottom: 2rem; }
+
+  /* ── Numbered Step List ──────────────────────────── */
+  ol.steps {
+    list-style: none;
+    counter-reset: step;
+    padding-left: 0;
+  }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 2.6rem;
+    margin-bottom: .85rem;
+    font-size: .95rem;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: .05rem;
+    background: #2b6cb0;
+    color: #fff;
+    width: 1.7rem; height: 1.7rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.7rem;
+    font-size: .85rem;
+    font-weight: 600;
+  }
+
+  /* ── Preset Cards ────────────────────────────────── */
+  .presets {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .7rem;
+  }
+  .preset-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: .85rem 1.2rem;
+    display: flex;
+    align-items: baseline;
+    gap: .7rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  }
+  .preset-card .name {
+    font-weight: 600;
+    color: #2b6cb0;
+    white-space: nowrap;
+    min-width: 170px;
+  }
+  .preset-card .desc { font-size: .93rem; color: #4a5568; }
+
+  /* ── Callout Boxes ───────────────────────────────── */
+  .callout {
+    border-radius: 8px;
+    padding: 1rem 1.3rem;
+    margin-bottom: 1rem;
+    font-size: .93rem;
+  }
+  .callout.info {
+    background: #ebf8ff;
+    border: 1px solid #bee3f8;
+    color: #2a4365;
+  }
+  .callout.tip {
+    background: #f0fff4;
+    border: 1px solid #c6f6d5;
+    color: #22543d;
+  }
+  .callout.warn {
+    background: #fffbeb;
+    border: 1px solid #fefcbf;
+    color: #744210;
+  }
+  .callout-title {
+    font-weight: 700;
+    margin-bottom: .3rem;
+  }
+
+  /* ── Interpretation Table ────────────────────────── */
+  table.interp {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: .6rem;
+    font-size: .93rem;
+  }
+  table.interp th {
+    background: #edf2f7;
+    text-align: left;
+    padding: .55rem .8rem;
+    font-weight: 600;
+    color: #1e3a5f;
+    border-bottom: 2px solid #cbd5e0;
+  }
+  table.interp td {
+    padding: .55rem .8rem;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+
+  /* ── Experiment List ─────────────────────────────── */
+  ul.experiments {
+    padding-left: 1.3rem;
+  }
+  ul.experiments li {
+    margin-bottom: .5rem;
+    font-size: .95rem;
+  }
+
+  /* ── Code / Variable Styling ─────────────────────── */
+  code {
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    background: #edf2f7;
+    color: #c53030;
+    padding: .1rem .35rem;
+    border-radius: 4px;
+    font-size: .88em;
+  }
+
+  /* ── Links ───────────────────────────────────────── */
+  a { color: #2b6cb0; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── Footer ──────────────────────────────────────── */
+  .footer {
+    margin-top: 2.5rem;
+    text-align: center;
+    font-size: .82rem;
+    color: #a0aec0;
+  }
+
+  /* ── Print Tweaks ────────────────────────────────── */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .banner { box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .preset-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ═══════ HEADER ═══════ -->
+  <div class="banner">
+    <h1>Gravity Lab</h1>
+    <div class="subtitle">Lecture 7 &mdash; Student Quick Guide</div>
+    <div class="link-row">
+      <a href="https://colab.research.google.com/github/DTEcon/Teaching_International_Trade_PUBLIC/blob/main/gravity_student_lab_colab_minimal.ipynb" target="_blank">Open in Google Colab</a>
+    </div>
+  </div>
+
+  <!-- ═══════ OBJECTIVE ═══════ -->
+  <div class="objective">
+    <strong>Objective:</strong> Run and interpret gravity regressions by changing the model specification, fixed effects, covariates, and country sample &mdash; all inside your browser, with no installation required.
+  </div>
+
+  <!-- ═══════ HOW TO RUN ═══════ -->
+  <section>
+    <h2><span class="num">1</span> How to Run</h2>
+    <ol class="steps">
+      <li><strong>Open the Colab notebook:</strong> <a href="https://colab.research.google.com/github/DTEcon/Teaching_International_Trade_PUBLIC/blob/main/gravity_student_lab_colab_minimal.ipynb" target="_blank">colab.research.google.com/&hellip;/gravity_student_lab_colab_minimal.ipynb</a></li>
+      <li>In the <strong>Gravity Spec Controls</strong> panel, choose a <code>preset_spec</code> (a pre-specified option, or <em>Custom</em>).</li>
+      <li>Click <strong>Runtime &rarr; Run all</strong>.</li>
+      <li>Read the output table at the bottom of the page.</li>
+      <li><em>Optional:</em> Click <strong>Show code</strong> to view the underlying Python code.</li>
+      <li><em>Optional:</em> <strong>File &rarr; Save a copy in Drive</strong> to keep your own settings and results.</li>
+    </ol>
+  </section>
+
+  <!-- ═══════ PRESET SPECS ═══════ -->
+  <section>
+    <h2><span class="num">2</span> Available Preset Specifications</h2>
+    <div class="presets">
+      <div class="preset-card">
+        <span class="name">Naive GDP (OLS)</span>
+        <span class="desc">Uses GDP controls without fixed effects.</span>
+      </div>
+      <div class="preset-card">
+        <span class="name">Cost-Proxy (OLS)</span>
+        <span class="desc">GDP controls plus additional gravity covariates (no fixed effects).</span>
+      </div>
+      <div class="preset-card">
+        <span class="name">Canonical FE (OLS)</span>
+        <span class="desc">Exporter + importer fixed effects, log-linear OLS. Reproduces Column (1) on Lecture 7, slide 26 (with country filter set to <code>ALL</code>).</span>
+      </div>
+      <div class="preset-card">
+        <span class="name">Canonical FE (PPML)</span>
+        <span class="desc">Exporter + importer fixed effects, PPML in levels. Reproduces Column (2) on Lecture 7, slide 26 (with country filter set to <code>ALL</code>). Runtime may be slightly longer.</span>
+      </div>
+      <div class="preset-card">
+        <span class="name">Custom</span>
+        <span class="desc">Choose the estimator, fixed effects, covariates, and country filters yourself.</span>
+      </div>
+    </div>
+    <div class="callout info" style="margin-top:.8rem;">
+      In <strong>non-Custom</strong> presets the estimator, fixed effects, and covariates are set automatically; only the exporter/importer country filters remain adjustable.
+    </div>
+    <p style="margin-top:.6rem; font-size:.93rem;">
+      Covariate definitions are documented in the
+      <a href="https://www.cepii.fr/DATA_DOWNLOAD/gravity/legacy/2015/gravdata_codebook_2015.pdf" target="_blank">CEPII gravity codebook (PDF)</a>.
+    </p>
+  </section>
+
+  <!-- ═══════ INTERPRETATION ═══════ -->
+  <section>
+    <h2><span class="num">3</span> Interpretation Guide</h2>
+    <table class="interp">
+      <thead>
+        <tr><th>Variable Type</th><th>How to Interpret the Coefficient</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ln_dist</code> (log of population-weighted distance)</td>
+          <td>The coefficient is an <strong>elasticity</strong>: a 1% increase in distance changes trade by &beta;%. Typically negative.</td>
+        </tr>
+        <tr>
+          <td><code>contig</code>, <code>comlang_off</code>, <code>rta</code> (dummy variables)</td>
+          <td>Approximate effect: 100&middot;&kappa;%. Exact multiplicative effect: exp(&kappa;), so the exact percent change is 100&middot;(exp(&kappa;)&minus;1)%. <br><em>Example:</em> &kappa;&nbsp;=&nbsp;0.50 &rarr; approx.&nbsp;50%; exact&nbsp;=&nbsp;100&middot;(e<sup>0.50</sup>&minus;1)&nbsp;&asymp;&nbsp;64.9%.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip" style="margin-top:.8rem;">
+      <div class="callout-title">Fixed Effects</div>
+      With <code>include_fe = True</code>, exporter and importer fixed effects absorb all country-specific factors (such as the importer's or exporter's GDP and population), consistent with the multilateral-resistance logic from Lecture 7.
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">OLS vs. PPML</div>
+      OLS uses log trade flows and therefore drops zero-flow observations. PPML estimates in levels and retains zero flows.
+    </div>
+  </section>
+
+  <!-- ═══════ EXPERIMENTS ═══════ -->
+  <section>
+    <h2><span class="num">4</span> Suggested Experiments</h2>
+    <ul class="experiments">
+      <li>Compare <strong>Naive GDP (OLS)</strong> with <strong>Canonical FE (OLS)</strong> &mdash; observe how fixed effects change the coefficients.</li>
+      <li>Keep fixed effects on and add or drop one bilateral covariate at a time to see how estimates shift.</li>
+      <li>Restrict exporters or importers to a few ISO3 codes (e.g., <code>CHE, DEU, USA</code>) and compare the resulting coefficients to the full sample.</li>
+    </ul>
+  </section>
+
+  <!-- ═══════ PRACTICAL NOTE ═══════ -->
+  <section>
+    <h2><span class="num">5</span> Important Practical Notes</h2>
+    <div class="callout warn">
+      <div class="callout-title">Your edits are private</div>
+      Your changes do <strong>not</strong> overwrite the shared notebook &mdash; each student works on an independent copy. If you do not save a copy to your Google Drive, your changes will be lost when the session ends.
+    </div>
+  </section>
+
+  <div class="footer">
+    International Trade &middot; Lecture 7 &middot; Gravity Lab
+  </div>
+
+</div>
+</body>
+</html>
