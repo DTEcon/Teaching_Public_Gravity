@@ -12,9 +12,9 @@ This public repository contains only student-safe Gravity Lab assets.
 Open directly in Colab:
 
 - Minimal notebook (share this with students):
-  - https://colab.research.google.com/github/DTEcon/Teaching_International_Trade_PUBLIC/blob/main/gravity_student_lab_colab_minimal.ipynb
+  - https://colab.research.google.com/github/DTEcon/Teaching_Public_Gravity/blob/main/gravity_student_lab_colab_minimal.ipynb
 - Full notebook (instructor/maintenance):
-  - https://colab.research.google.com/github/DTEcon/Teaching_International_Trade_PUBLIC/blob/main/gravity_student_lab_colab.ipynb
+  - https://colab.research.google.com/github/DTEcon/Teaching_Public_Gravity/blob/main/gravity_student_lab_colab.ipynb
 
 Detailed instructions:
 

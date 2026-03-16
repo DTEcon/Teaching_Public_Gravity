@@ -6,9 +6,9 @@ This repository is intentionally restricted to gravity-lab assets only.
 ## Open in Colab
 
 - Student link (recommended):  
-  [Open Gravity Student Lab - Minimal](https://colab.research.google.com/github/DTEcon/Teaching_International_Trade_PUBLIC/blob/main/gravity_student_lab_colab_minimal.ipynb)
+  [Open Gravity Student Lab - Minimal](https://colab.research.google.com/github/DTEcon/Teaching_Public_Gravity/blob/main/gravity_student_lab_colab_minimal.ipynb)
 - Instructor/maintenance link (all code visible):  
-  [Open Gravity Student Lab - Full](https://colab.research.google.com/github/DTEcon/Teaching_International_Trade_PUBLIC/blob/main/gravity_student_lab_colab.ipynb)
+  [Open Gravity Student Lab - Full](https://colab.research.google.com/github/DTEcon/Teaching_Public_Gravity/blob/main/gravity_student_lab_colab.ipynb)
 
 ## One-click student flow
 
